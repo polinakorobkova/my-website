@@ -75,6 +75,7 @@ const Paragraph = styled.p`
   max-width: 550px;
   font-size: 21px;
   line-height: 1.6;
+  margin-bottom: 20px;
 `;
 
 const Quote = styled.blockquote`
