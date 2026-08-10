@@ -8,7 +8,6 @@ import { Materials } from 'presentation/pages/Materials/Materials';
 import { MaterialComponent } from 'presentation/components/Material-component/Material-component';
 import { Text } from 'presentation/pages/Text/Text';
 import { Performances } from 'presentation/pages/Performances/Performances';
-import { Performance } from 'presentation/pages/Performance/Performance';
 import { LayoutPage } from 'presentation/components/Layout/Layout';
 
 export const RouterConfig = () => {
@@ -26,8 +25,7 @@ export const RouterConfig = () => {
 				{ path: 'compositions/anonymous-materials/:id', element: <MaterialComponent /> },
 				{ path: 'texts', element: <Texts /> },
 				{ path: 'texts/:id', element: <Text /> },
-				{ path: 'performances', element: <Performances /> },
-				{ path: 'performances/:id', element: <Performance /> },
+				{ path: 'portfolio', element: <Performances /> },
 			],
 		},
 	]);

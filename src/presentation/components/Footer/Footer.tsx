@@ -53,7 +53,11 @@ export const Footer: React.FC = () => {
           >
             email
           </Styled.BlockLink>
-          <Styled.BlockLink target='_blank' rel='noopener noreferrer' to='#'>
+          <Styled.BlockLink
+            target='_blank'
+            rel='noopener noreferrer'
+            to='https://www.instagram.com/nomadunya/'
+          >
             instagram
           </Styled.BlockLink>
         </Styled.Block>

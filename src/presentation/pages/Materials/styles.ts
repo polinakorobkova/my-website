@@ -104,6 +104,15 @@ const Iframe = styled.iframe`
     height: 80%;
   }
 `;
+
+const CreditText = styled.span`
+  font-size: 14px;
+  color: var(--color-text);
+  opacity: 0.7;
+  margin-top: 4px;
+  display: block;
+`;
+
 export const Styled = {
   Link,
   GlobalStyle,
@@ -112,5 +121,6 @@ export const Styled = {
   Paragraph,
   ImageContainer,
   PlayerContainer,
-  Iframe
+  Iframe,
+  CreditText,
 };

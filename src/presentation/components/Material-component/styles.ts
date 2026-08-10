@@ -169,6 +169,14 @@ const Iframe = styled.iframe`
   aspect-ratio: 16 / 9;
 `;
 
+const CreditText = styled.span`
+  font-size: 14px;
+  color: var(--color-text);
+  opacity: 0.7;
+  margin-top: 4px;
+  display: block;
+`;
+
 const PlayerContainer = styled.div`
   position: fixed;
   bottom: 0;
@@ -217,4 +225,5 @@ export const Styled = {
   VideoWrapper,
   Iframe,
   PlayerContainer,
+  CreditText,
 };

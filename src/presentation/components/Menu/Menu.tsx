@@ -10,7 +10,7 @@ export const Menu: React.FC = () => {
       <MenuItem url='collaboration' setting={SetColloboration}/>
       <MenuItem url='compositions' setting={SetCompositions}/>
       <MenuItem url='texts' setting={SetTexts}/>
-      <MenuItem url='performances' setting={SetPerformances}/>
+      <MenuItem url='portfolio' setting={SetPerformances}/>
     </Styled.Container>
   );
 };

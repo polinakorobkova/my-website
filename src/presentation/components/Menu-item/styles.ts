@@ -13,12 +13,12 @@ const Link = styled(RLink)<{ $isActive: boolean }>`
   position: relative;
   font-size: 20px;
   font-family: 'Syne Mono', monospace;
-  color: var(--color-text);
+  color: var(--color-accent);
   text-decoration: none;
   ${({ $isActive }) =>
     $isActive &&
     `
-    color: var(--color-accent);
+    color: var(--color-text);
 
     &::before {
       position: absolute;
@@ -26,7 +26,7 @@ const Link = styled(RLink)<{ $isActive: boolean }>`
       display: inline-block;
       width: 7px;
       height: 7px;
-      background-color: var(--color-accent);
+      background-color: var(--color-text);
       border-radius: 50%;
       left: -10px;
       top: 55%;
@@ -35,7 +35,7 @@ const Link = styled(RLink)<{ $isActive: boolean }>`
   `}
 
   &:hover {
-    color: var(--color-accent);
+    color: var(--color-text);
   }
 `;
 

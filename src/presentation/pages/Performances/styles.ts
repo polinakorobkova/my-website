@@ -1,41 +1,19 @@
-import { Link as RLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Filter = styled.div`
-  display: flex;
-  gap: 100px;
+const Header = styled.div`
+  color: var(--color-accent);
+  font-size: 35px;
+  margin-top: 120px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
   padding-left: 20px;
-  padding-top: 130px;
-  @media (max-width: 670px) {
-    top: 100px;
+
+  @media (max-width: 900px) {
+    margin-top: 30px;
   }
-`;
-
-const Button = styled.button<{ $active: true | false }>`
-  font-size: 20px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: var(--color-text);
-  transition: color 1s ease-in forwards;
-
-  &:hover {
-    color: var(--color-accent);
-  }
-
-  ${({ $active }) =>
-    $active &&
-    `
-    color: var(--color-accent);
-  `}
-`;
-const Link = styled(RLink)`
-  max-width: max-content;
-  font-size: 20px;
 `;
 
 export const Styled = {
-  Link,
-  Filter,
-  Button,
+  Header,
 };

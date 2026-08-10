@@ -12,7 +12,7 @@ const Burger = styled.div`
   top: 10px;
   left: 0px;
 
-  @media (max-width: 815px) {
+  @media (max-width: 1175px) {
     display: block;
   }
 `;
@@ -109,30 +109,18 @@ const Line = styled.div<{ $isChecked: boolean; $position: 'top' | 'middle' | 'bo
 `;
 const Link = styled(RLink)<{ $isActive?: boolean }>`
   position: relative;
-  color: var(--color-text);
+  color: var(--color-accent);
   pointer-events: auto;
   font-size: 20px;
+  text-decoration: none;
 
   ${({ $isActive }) =>
     $isActive &&
     `
-    color: var(--color-accent);
-
-    &::before {
-      position: absolute;
-      content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      background-color: var(--color-accent);
-      border-radius: 50%;
-      left: -10px;
-      top: 55%;
-      transform: translateY(-50%);
-    }
+    color: var(--color-text);
   `}
   &:hover {
-    color: var(--color-accent);
+    color: var(--color-text);
   }
 `;
 

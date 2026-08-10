@@ -7,7 +7,6 @@ const Container = styled.div<{
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 30px;
   width: 100%;
   height: 100%;
   min-height: 100%;
@@ -49,7 +48,6 @@ const Container = styled.div<{
   }
 
   @media (max-width: 540px) {
-    gap: 20px;
     max-width: 100%;
   }
   @media (max-height: 540px) {

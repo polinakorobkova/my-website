@@ -24,30 +24,34 @@ export const Materials: React.FC = () => {
       case 'photo-pair':
         return (
           <Styled.ImageContainer key={index}>
-            {section.images?.map((src, imgIndex) => (
-              <Styled.Image
-                key={imgIndex}
-                className='custom-preview'
-                src={src}
-                preview={PreviewType}
-                placeholder={<Loader />}
-                alt={compositionData?.name}
-              />
+            {section.images?.map((image, imgIndex) => (
+              <div key={imgIndex}>
+                <Styled.Image
+                  className='custom-preview'
+                  src={image.src}
+                  preview={PreviewType}
+                  placeholder={<Loader />}
+                  alt={compositionData?.name}
+                />
+                {image.credit && <Styled.CreditText>{image.credit}</Styled.CreditText>}
+              </div>
             ))}
           </Styled.ImageContainer>
         );
       case 'photo-grid':
         return (
           <Styled.ImageContainer key={index}>
-            {section.images?.map((src, imgIndex) => (
-              <Styled.Image
-                key={imgIndex}
-                className='custom-preview'
-                src={src}
-                preview={PreviewType}
-                placeholder={<Loader />}
-                alt={compositionData?.name}
-              />
+            {section.images?.map((image, imgIndex) => (
+              <div key={imgIndex}>
+                <Styled.Image
+                  className='custom-preview'
+                  src={image.src}
+                  preview={PreviewType}
+                  placeholder={<Loader />}
+                  alt={compositionData?.name}
+                />
+                {image.credit && <Styled.CreditText>{image.credit}</Styled.CreditText>}
+              </div>
             ))}
           </Styled.ImageContainer>
         );

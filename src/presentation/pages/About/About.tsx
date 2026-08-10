@@ -5,6 +5,13 @@ import { Highlight } from 'presentation/components/Highlight/Highlight';
 import { Styled } from './styles';
 import { Loader } from 'presentation/components/Loader/Loader';
 
+const renderHighlightedText = (text: string) => {
+  const parts = text.split(/\|\|(.+?)\|\|/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <Highlight key={i}>{part}</Highlight> : part,
+  );
+};
+
 export const About: React.FC = () => {
   const { photo, cv, sections, portfolio } = data;
 
@@ -40,7 +47,11 @@ export const About: React.FC = () => {
             </Styled.Paragraph>
           );
         }
-        return <Styled.Paragraph key={index}>{section.content}</Styled.Paragraph>;
+        return (
+          <Styled.Paragraph key={index}>
+            {section.content ? renderHighlightedText(section.content) : null}
+          </Styled.Paragraph>
+        );
       })}
       <Styled.CvLink href={cv} target='_blank' rel='noopener noreferrer'>
         cv {'>'}

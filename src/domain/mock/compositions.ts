@@ -1,9 +1,25 @@
+export interface ImageItem {
+  src: string;
+  credit?: string;
+}
+
 export interface CompositionSection {
-  type: 'info' | 'text' | 'photo-pair' | 'photo-grid' | 'video' | 'audio' | 'link';
+  type:
+    | 'info'
+    | 'text'
+    | 'text-accent'
+    | 'quote'
+    | 'photo-pair'
+    | 'photo-grid'
+    | 'video'
+    | 'video-grid'
+    | 'audio'
+    | 'link';
   content?: string;
   src?: string;
   href?: string;
-  images?: string[];
+  images?: ImageItem[];
+  videos?: { src: string; label?: string }[];
   label?: string;
 }
 
@@ -38,237 +54,263 @@ export interface CompositionData {
 export const data: CompositionData[] = [
   {
     id: 1,
-    name: 'eight private spaces',
-    slug: 'eight-private-spaces',
+    name: 'implanted memories',
+    slug: 'implanted-memories',
     cover:
-      'https://polina-image.s3.us-east-2.amazonaws.com/convert/eight_private_spaces_cover.webp',
-    date: '29.10.2024',
-    orchestra: 'for 18 musicians, 26 loudspeakers and 2 spaces',
-    time: 'ca. 16 min.',
+      'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_cover.webp',
+    date: '2019-2026',
+    orchestra: '',
+    time: '',
     description: '',
-    venue: 'Wiener Konzerthaus',
+    venue: '',
     ensemble: 'Klangforum Wien',
-    duration: '20 min',
-    instrumentation: 'ensemble',
-    performedBy: 'Klangforum Wien',
-    commission: 'Wiener Konzerthaus',
+    duration: '45 minutes',
+    instrumentation:
+      'automated, microtonal arciorgano, singing performer, and a video-projection',
+    performedBy: 'Johanna Vargas, Johannes Keller, and the arciorgano',
+    commission: 'Musik der Jahrhunderte',
     sections: [
       {
         type: 'info',
       },
       {
         type: 'text',
-        content: `contemporary world is often presented to us as a place where all frontiers have been erased. usually this signifies a rather naïve conception of a globalised society, where cultural differences and class barriers are no longer present. yet, a vision of a borderless world is a common trope in many classics of horror genre. for instance, in junji ito's »town without streets«, the disappearance of walls becomes a trigger for catastrophic social tremors. when boundaries between private and public blur, uncanniness (das unheimliche) fills the transformed space.`,
+        content: `Imagine a solitary human silhouette standing in dim blue lighting faced to a peculiar construction equipped with pipes, multiple keyboards and wires. Since the shadowy figure is turned in the opposite direction from the audience and the hall is rather gloomy, you cannot discern her face. Instead, the spotlight–literally and metaphorically–is on this steam-punk machinery, archaic and futuristic at once. The atmosphere resambles that of a cathedral–majestic and slightly ominous.`,
+      },
+      {
+        type: 'text',
+        content: `When the performer begins to sing, subtle repetitions of a naively simplistic melody, coming across as an anxious kitschy pop-song, emerge:`,
+      },
+      {
+        type: 'quote',
+        content: `'please come here', 'i wanna hear your voice', 'why can't you just say three words?'`,
+      },
+      {
+        type: 'text',
+        content: `||The chasm between the august setting and the intimate confession reminiscent of a prayer is vividly sensible.||`,
+      },
+      {
+        type: 'text',
+        content: `After a short while, the machine commences replying to these vulnerable, emotional outbursts by copying and reproducing the already sung phrases with details pertinent to human voice, such as vibrato, glissando and timbral inconsistencies. However, this time, they are repeated in an identical, automated, almost preternatural manner, taking in account that no one is touching the keyboard! The keys are being pressed by themselves, maintaining contact with the performer strictly in a sonic, immaterial dimension.`,
       },
       {
         type: 'photo-pair',
         images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/private_spaces_photo_1.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/private_spaces_photo_3.webp',
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_1.webp',
+          },
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_2.webp',
+          },
         ],
       },
       {
         type: 'text',
-        content: `exhibited in the form of catalogue, eight private apartments are being governed by bio-political strategies of background music, borrowed from public spaces and applied to every-day existence. confusion and doubt pervade all layers of the work, as if relentlessly attempting to draw the inexistent line between the real and the artificial.`,
+        content: `This peculiar dialogue is stretched over a larger span of time while undergoing various stages of interaction: contemplating the other, resonating with it, chasing, mirroring, merging, and, ultimately, leaving the audience wondering – who is the primary subject in this exchange and who is the volitionless double. In other words, ||is the singer only a clone of the machine or vice versa?||`,
       },
       {
         type: 'text',
-        content: `composed for klangforum wien and to be performed in wiener konzerthaus`,
+        content: `||The ambivalence between radical intimacy and the forced performativity of spectacle–the exposed palette of human sensitivity and the mechanical, articulated indifference–shapes a critical investigation into the architecture of personal and collective memory and its role in the formation of gendered representation.||`,
       },
       {
-        type: 'photo-grid',
-        images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/private_spaces_photo_2.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/private_spaces_photo_4.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/private_spaces_photo_5.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/private_spaces_photo_6.webp',
+        type: 'text',
+        content: `The work is situated between experimental composition, theatrical ritualistic procession and a pop gig, addressing a wide spectre of audience–the familiar faces in new music, contemporary art enthusiasts, and those seeking pleasure in new forms of reflexive experience.`,
+      },
+      {
+        type: 'text',
+        content: `The premiere of a 25-minute excerpt took place in Stuttgart in the framework of ECLAT festival 2026.`,
+      },
+      {
+        type: 'video-grid',
+        videos: [
+          { src: 'https://youtu.be/tdw9pSGLKRk' },
+          { src: 'https://www.youtube.com/watch?v=ZRpUV85CZ_w' },
         ],
       },
     ],
   },
   {
     id: 2,
-    name: 'implanted memories',
-    slug: 'implanted-memories',
-    cover:
-      'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_cover.webp',
-    date: '(2019 — … ; work-in-progress)',
-    orchestra: 'for an automated arciorgano and a female performer',
-    time: 'ca. 60 min.',
+    name: 'tap my head and mike my brain, stick that needle in my vein',
+    slug: 'tap-my-head',
+    cover: '/tap_my_head/image1.jpg',
+    date: '(2024-2025)',
+    orchestra: '',
+    time: '20 minutes',
     description: '',
-    trackUrl:
-      'https://polina-sound.s3.us-east-2.amazonaws.com/implanted+memoreis/implanted_memoreis_audio-MP3_fcbtqy.mp3',
-    code: 'https://drive.google.com/file/d/19LvQp5lVLuIsb2wmqtuWJhyE3DrBsks5/view',
-    coopName: '©Johannes Keller',
-    venue: 'Wiener Konzerthaus',
-    ensemble: 'Klangforum Wien',
-    duration: '20 min',
-    instrumentation: 'ensemble',
-    performedBy: 'Klangforum Wien',
-    commission: 'commissioned by Wiener Konzerthaus',
+    score: '',
+    duration: '20 minutes',
+    instrumentation:
+      'two performers with turntables, preprinted vinyls, phones, and transducers',
+    performedBy: 'Anna Piroli and Erika Sofia Sollo; Juliet Fraser and Hannah Weirich',
+    commission: 'Bludenzer Tage zeitgemäßer Musik 2024',
+    sections: [
+      {
+        type: 'info',
+      },
+      {
+        type: 'text-accent',
+        content: `The composition explores how the human voice detaches from the body that produces it, reappearing on stage through vinyl records as a distorted doppelgänger of an earlier act of singing. Pushed to the limits of its capacities, the recorded imprint of the voice undergoes a series of technical manipulations before being imitated live by the same musicians who produced the tracks. Ultimately, the process is folded into a feedback loop that dispenses with the need for human participation altogether. Everyday playback and communication technologies—mobile phones, turntables, vinyl records, and loudspeakers—become critical artistic tools, gradually seizing and subsuming the signals they are meant to transmit along trajectories of their own.`,
+      },
+      {
+        type: 'text',
+        content: `Standing at their respective turntables, the performers press a button in unison, releasing an odd duet from two small loudspeakers. Homemade recordings of the musicians' voices emerge, weaving and intertwining with one another, forming polyphonic microtonal ornaments, coming apart and then melting back into unison.`,
+      },
+      {
+        type: 'photo-pair',
+        images: [
+          { src: '/tap_my_head/image2.jpg', credit: '@ Andrea Romeo' },
+          { src: '/tap_my_head/image3.jpg', credit: '@ Andrea Romeo' },
+        ],
+      },
+      {
+        type: 'text',
+        content: `For the first half of the performance, the only actions taking place on stage consist of manipulating the vinyl records by adjusting playback speed and direction of rotation. ||Due to a technical coupling between pitch and tempo, polyphony evolves in real time – the voices transform, reaching registers inaccessible to the unmediated human voice.||`,
+      },
+      {
+        type: 'text',
+        content: `Around halfway through the performance, sustained white noise produced by scratches on the records serves as a turning point of the piece's course: for the first time the performers begin to sing–bound to rhythms generated through their own manipulation of the turntables.`,
+      },
+      {
+        type: 'text',
+        content: `||In the last section, the live singing overlaps with the archival recordings: each performer mimics the captured voice of another.|| Moreover, the live voices are fed back into the records' surfaces through transducers, coiling into a closed circuit which irrevocably distorts the initial material. ||Technology ceases to function as a passive carrier of information and transforms into an active participant, redistributing agency across source, playback, channel, and presence until communication breaks down altogether.||`,
+      },
+      {
+        type: 'text',
+        content: `||Musicians exit the space of performance, leaving mechanical devices to produce sounds autonomously. Human presence is no longer a necessary condition for the process to go on.||`,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'flashbacks to perform (2019-...)',
+    slug: 'flashbacks-to-perform',
+    cover:
+      'https://polina-image.s3.us-east-2.amazonaws.com/convert/flashbacks_to_perform_cover.webp',
+    date: '(2019-...)',
+    orchestra: '',
+    time: '20 minutes',
+    description: '',
+    duration: '20 minutes',
+    instrumentation: 'solo piano',
+    performedBy: 'Jean-Pierre Collot; Dmitry Batalov; Dolores Privitera',
+    commission: 'Ernst von Siemens Musikstiftung and Bavarian Academy of Fine Arts',
+    score: '',
     sections: [
       {
         type: 'info',
       },
       {
         type: 'text',
-        content: `how can i trust that my concealed, intimate memories are real if i don't have an ability to catch them? each time i try to depict their virtuality in sung gestures and grasp their presence, i lose those materialised phenomena once again, as they slip away in the irreversibility of time.`,
-      },
-      {
-        type: 'photo-pair',
-        images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_1.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_2.webp',
-        ],
+        content: `For most of my childhood and adolescence—from the age of three until sixteen—I was trained as a professional pianist and performed on stage regularly. In practical terms, this meant spending the vast majority of my time with the instrument, often around eight hours a day.`,
       },
       {
         type: 'text',
-        content: `yet, what happens if there is a mechanical machine juxtaposed to me, which can separate my gestures from my body and reproduce them precisely the same way over and over back at me? what impact does this encounter have on me and my act of recalling? what reaction does it trigger? does it make my existence more reliable or does it only sow more uncertainty and fears?`,
+        content: `||My physical existence and my conception of my body were therefore inextricably intertwined with the sensations of approaching the piano: the distribution of weight on a key, the nuanced gradation of pressing a pedal, the tension spilling from the back into the wrists.||`,
+      },
+      {
+        type: 'text',
+        content: `I stopped playing abruptly—within a single day—due to a professional injury to my hand. After undergoing surgery, I was forced to abandon the instrument and have not played since.`,
       },
       {
         type: 'photo-grid',
         images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_3.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_4.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_5.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_6.webp',
+          { src: '/flashback/images/image1.jpg', credit: '@ Astrid Ackermann' },
+          { src: '/flashback/images/image2.jpg', credit: '@ Astrid Ackermann' },
+          { src: '/flashback/images/image3.jpg', credit: '@ Astrid Ackermann' },
         ],
       },
       {
         type: 'text',
-        content: `our composed ritual is an attempt not only to deal with, but also to live through all these questions.`,
+        content: `The cycle 'flashbacks to perform' delves into the tactile memory of intimacy between a performer and their instrument. ||Taking classical piano repertoire as its foundation, works by Chopin, Schubert, Mozart, and Schumann are fragmented and recontextualised through meticulous repetitions of small sections.||`,
       },
       {
         type: 'text',
-        content: `the trial version was performed at kunstraum walcheturm, zurich and gare du nord, basel. however, it's still a work-in-progress, seeking it's ultimate realisation.`,
-      },
-      {
-        type: 'photo-pair',
-        images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_7.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_photo_8.webp',
-        ],
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: 'haunted place',
-    slug: 'haunted-place',
-    cover:
-      'https://polina-image.s3.us-east-2.amazonaws.com/convert/haunted_place_cover.webp',
-    date: '(2021)',
-    orchestra: 'for a string quartet with four transducers',
-    time: 'ca. 5 min.',
-    description: `all spaces are haunted with ghosts, some are more exposed to their influence than others. virtuality is not exclusively what once was, but also what could be and what is. it is an illusion, but an efficient one.
-    a place can be a catalyst of past breaking through. under certain circumstances, there is no escape from obeying to it. then one is left with nothing, but out-of-joint time and bitter beauty of its decay.
-    our piece explores juxtaposition of two memory zones - personal and collective, encountered on a viennese train station. field recordings are emitted from the vibration of instruments' bodies by means of transducers. our intimate, reverent recollections are played over them — while disturbing, shifting and altering the 'objective' documentation. random mix of 'romantic' pieces from the loudspeakers on the station melts with live performance.
-    composed for quartetto maurice and performed on bludenzer tage zeitgemäßer musik 2021
-    won the bludenzer tage zeitgemäßer musik prize`,
-    videoSrc: 'https://www.youtube.com/embed/eIGrrDLE1Zs',
-    trackUrl:
-      'https://polina-sound.s3.us-east-2.amazonaws.com/haunted_place/haunted_place_audio-MP3_xmjide.mp3',
-    score:
-      'https://drive.google.com/file/d/1Q1bvcZEGX7R3UjFKpk95j4_Imh5ajmJy/view?usp=drive_link',
-    sections: [
-      {
-        type: 'text',
-        content: `all spaces are haunted with ghosts, some are more exposed to their influence than others. virtuality is not exclusively what once was, but also what could be and what is. it is an illusion, but an efficient one.`,
+        content: `||The left hand remains deliberately muted for much of the piece—imagined rather than heard, present as a phantom.||`,
       },
       {
         type: 'text',
-        content: `a place can be a catalyst of past breaking through. under certain circumstances, there is no escape from obeying to it. then one is left with nothing, but out-of-joint time and bitter beauty of its decay.`,
-      },
-      {
-        type: 'photo-pair',
-        images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/haunted_place_photo_1.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/haunted_place_photo_2.webp',
-        ],
+        content: `||The score becomes a surface for documenting the sensation of playing itself, using different colours to indicate weight, arrows marking the precise position of the arms, and lines tying the tempo of playing to performer's breathing.||`,
       },
       {
         type: 'text',
-        content: `our piece explores juxtaposition of two memory zones - personal and collective, encountered on a viennese train station. field recordings are emitted from the vibration of instruments' bodies by means of transducers. our intimate, reverent recollections are played over them — while disturbing, shifting and altering the 'objective' documentation. random mix of 'romantic' pieces from the loudspeakers on the station melts with live performance.`,
-      },
-      {
-        type: 'text',
-        content: `composed for quartetto maurice and performed on bludenzer tage zeitgemäßer musik 2021`,
-      },
-      {
-        type: 'text',
-        content: `won the bludenzer tage zeitgemäßer musik prize`,
-      },
-      {
-        type: 'video',
-        src: 'https://www.youtube.com/embed/eIGrrDLE1Zs',
+        content: `Dwelling as much in what is negatively present—that is, unheard—as in what is actually sounded, the piece traces the persistence of embodied technique after its interruption: ||a memory of playing that survives as symptom, absence, and return.||`,
       },
     ],
   },
   {
     id: 4,
-    name: 'flashbacks to perform',
-    slug: 'flashbacks-to-perform',
-    cover:
-      'https://polina-image.s3.us-east-2.amazonaws.com/convert/flashbacks_to_perform_cover.webp',
-    date: '(2020 — … ; work-in-progress)',
-    orchestra: 'cycle of miniatures for grand-piano',
-    time: 'ca. 3.30 min — …',
-    description: `can one transmit memories of sensibility to another being? is it possible to share the intimacy of connection with a musical instrument? this project is making an attempt to grasp, to notate and to recompose relation to playing and to ritualise it in shifting repetitions.
-    based on analyses of corporal recollections from our pianist childhood, mental archeology takes place in the realm of famous piano repertoire we performed or wished to perform. whether or not flashbacks of physical touch, combined with phantom pain, are transferable, the outcome of this implantation surgery is to be witnessed.
-    written for and performed by dmitry batalov in the context of the international piano compétition of orléans, france, as well as by alexandra sikorskaya and the author in zurich university of arts, and jean-pierre collot as part of ukrainian evenings in bayerische akademie der schönen künste, munich.`,
-    videoSrc: 'https://www.youtube.com/embed/QKFeYKAm-5g',
-    performed: 'performed by Dmitry Batalov',
-    trackUrl:
-      'https://polina-sound.s3.us-east-2.amazonaws.com/flashbacks_to_perform/flashbacks_to_perform_audio-MP3_fehsgt.mp3',
-    score:
-      'https://drive.google.com/file/d/1Gjkua7-otpuqGTHPkq1EOkRhr8JJl61W/view?usp=drive_link',
+    name: 'eight private spaces',
+    slug: 'eight-private-spaces',
+    cover: '',
+    date: '',
+    orchestra: '',
+    time: '18 minutes',
+    description: '',
+    duration: '18 minutes',
+    instrumentation: '18 musicians, 26 loudspeakers, and 2 spaces',
+    performedBy: '',
+    commission: 'Klangforum Wien',
+    score: '',
     sections: [
       {
-        type: 'text',
-        content: `can one transmit memories of sensibility to another being? is it possible to share the intimacy of connection with a musical instrument? this project is making an attempt to grasp, to notate and to recompose relation to playing and to ritualise it in shifting repetitions.`,
-      },
-      {
-        type: 'photo-grid',
-        images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/flashbacks_to_perform_photo_1.webp',
-        ],
+        type: 'info',
       },
       {
         type: 'text',
-        content: `based on analyses of corporal recollections from our pianist childhood, mental archeology takes place in the realm of famous piano repertoire we performed or wished to perform. whether or not flashbacks of physical touch, combined with phantom pain, are transferable, the outcome of this implantation surgery is to be witnessed.`,
+        content: `Picture a concert hall filled with twenty-eight loudspeakers varying in size, quality, and placement: some displayed like sculptures on a raised platform at its centre, as though occupying the places of absent musicians; others suspended from the ceiling or concealed entirely from view. The audience is free to roam through the microclimate generated by this chaotically structured sound system—moving across the hall, lying on cushions, or observing one another's reactions.`,
+      },
+      {
+        type: 'text-accent',
+        content: `From only a few of the loudspeakers emerges a striking mixture of a field recording of habitual yet seemingly incidental domestic actions—brushing one's teeth, opening drawers—with lounge music commonly encountered in shopping centres or airports. The latter is by no means independent of the activities taking place in the apartment. More: the music appears to hold sway over them, directing and propelling the movements as its tempo accelerates or slackens in step with the footsteps.`,
       },
       {
         type: 'text',
-        content: `written for and performed by dmitry batalov in the context of the international piano compétition of orléans, france, as well as by alexandra sikorskaya and the author in zurich university of arts, and jean-pierre collot as part of ukrainian evenings in bayerische akademie der schönen künste, munich.`,
+        content: `After some time, an abrupt cut disrupts the established flow: a new constellation of active loudspeakers instantly transports the audience into another private space, with background music of its own. This sudden switch recurs seven more times over the course of the piece, bringing the conditions of sound's mediation to the foreground: each recording is coupled with a different loudspeaker configuration and quality of reproduction. ||Do the nagging buzz, the bass-starved compression, and the excessive delay originate in the loudspeakers, or are these distortions already inscribed in the tracks themselves?||`,
       },
       {
-        type: 'video',
-        src: 'https://www.youtube.com/embed/QKFeYKAm-5g',
+        type: 'text',
+        content: `||As the audience is drawn deeper into this uncanny apparatus of surveillance, the provenance of the recordings—and eventually their status as recordings at all—becomes increasingly uncertain.|| Sounds of live instruments occasionally emerge from an adjacent room and coincide with the tracks, further destabilising the distinction between document and event. The performance draws to a close with a short circuit: only at the very end do several performers enter the hall, microphones in hand, amplifying its ambient noise back into the very space that produces it.`,
+      },
+      {
+        type: 'text',
+        content: `||The catalogue of 'eight private spaces' investigates music as a mechanism of behavioural regulation, the artifice inscribed in documentary recordings, and the unstable boundary between listening and surveillance.||`,
       },
     ],
   },
   {
     id: 5,
-    name: 'anonymous materials',
-    slug: 'anonymous-materials',
+    name: 'haunted place (2021)',
+    slug: 'haunted-place',
     cover:
-      'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_materials_cover.webp',
-    date: '(2020 — … ; work-in-progress)',
-    orchestra: 'series of cuts for various groups of instruments',
-    time: 'ca. 5 min — …',
+      'https://polina-image.s3.us-east-2.amazonaws.com/convert/haunted_place_cover.webp',
+    date: '(2021)',
+    orchestra: '',
+    time: '5 minutes',
     description: '',
+    duration: '5 minutes',
+    instrumentation: 'string quartet with transducers',
+    performedBy: 'Quartetto Maurice',
+    commission: "winner of the BTzM Composers' Workshop 2021",
+    videoSrc: 'https://www.youtube.com/embed/eIGrrDLE1Zs',
+    trackUrl:
+      'https://polina-sound.s3.us-east-2.amazonaws.com/haunted_place/haunted_place_audio-MP3_xmjide.mp3',
+    score: '',
     sections: [
       {
-        type: 'text',
-        content: `what if one tabooed all personalised artistic choices and undertook a procedure of self-negation. striving to deny one's authorship means exposing oneself to something else, becoming an incubator for the else.`,
+        type: 'info',
       },
       {
         type: 'text',
-        content: `but where does one end and the outside begin? an experiment, doomed from the start, endeavours to capture the clashes and the cracks in interaction of the self with the alien.`,
+        content: `The piece brings into collision two modes of documenting the same event: an objective one, produced through a field recording, and a subjective one, reconstructed solely through evanescent recollection of my own lived experience.`,
       },
       {
         type: 'text',
-        content: `each cut is a transcription of some found material by structured re-listening. the temporal frame and the rules of the transcribing process are prescribed, whereas the written out remains unregulated.`,
+        content: `||A train station in Vienna, where a soundtrack of sappy excerpts from nineteenth-century Romantic string quartets perpetually resounds as part of a municipal program, becomes the central protagonist of the work. ||This melancholic site where paths part and reunite is engraved—by means of transducers—into the bodies of an actual string quartet. ||Resonating with frequencies of the past, the instruments themselves turn into carriers of memory, rendering the performers the agents of disturbance—painting over the objective documentation with their bows.|| What once served as an ambient background–amplifying and estranging the emotions elicited by meetings and departures—is now the canvas for their retrospective recollection and alteration.`,
+      },
+      {
+        type: 'text',
+        content: `Beyond its recursive setting and principle of organisation, 'haunted place' is an unironic sentimental ode to personal and collective practices of escapism, compulsive repetitions of the Same, and loneliness.`,
       },
     ],
   },
@@ -299,9 +341,15 @@ export const materials: CompositionData[] = [
       {
         type: 'photo-grid',
         images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_i_photo_1.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_i_photo_2.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_i_photo_3.webp',
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_i_photo_1.webp',
+          },
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_i_photo_2.webp',
+          },
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_i_photo_3.webp',
+          },
         ],
       },
     ],
@@ -328,11 +376,21 @@ export const materials: CompositionData[] = [
       {
         type: 'photo-grid',
         images: [
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_1.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_2.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_3.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_4.webp',
-          'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_5.webp',
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_1.webp',
+          },
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_2.webp',
+          },
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_3.webp',
+          },
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_4.webp',
+          },
+          {
+            src: 'https://polina-image.s3.us-east-2.amazonaws.com/convert/anonymous_material_ii_photo_5.webp',
+          },
         ],
       },
     ],

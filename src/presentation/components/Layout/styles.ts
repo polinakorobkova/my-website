@@ -41,16 +41,21 @@ const Content = styled.div`
 
 const NoteSlider = styled.div`
   width: 100%;
-  height: 100%;
+  height: 500px;
+  min-height: 0;
   overflow: hidden;
   padding-top: 100px;
+
+  @media (max-width: 1015px) {
+    padding-top: 30px;
+  }
 `;
 
 const NoteTrack = styled.div`
   display: flex;
-  height: 100%;
+  height: 500px;
   width: max-content;
-  animation: slideRightToLeft 20s linear infinite;
+  animation: slideRightToLeft 60s linear infinite;
   will-change: transform;
 
   @keyframes slideRightToLeft {
@@ -64,15 +69,14 @@ const NoteTrack = styled.div`
 `;
 
 const NoteImageWrap = styled.div`
-  width: min-content;
-  height: 100%;
+  height: 500px;
   flex-shrink: 0;
   overflow: hidden;
 `;
 
 const NoteImage = styled.img`
-  width: 212vw;
-  height: 100%;
+  height: 500px;
+  width: auto;
   object-fit: cover;
 `;
 

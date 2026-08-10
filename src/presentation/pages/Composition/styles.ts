@@ -18,7 +18,7 @@ const Title = styled.h1`
   font-family: 'Syne Mono', monospace;
   font-size: 30px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 
 const HeaderSection = styled.div`
@@ -26,10 +26,11 @@ const HeaderSection = styled.div`
   gap: 50px;
   align-items: flex-start;
   max-width: 1100px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
-  @media (max-width: 670px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
+    gap: 20px;
   }
 `;
 
@@ -45,10 +46,14 @@ const CoverImage = styled(ANTImage)`
     filter: brightness(70%);
   }
 
-  @media (max-width: 670px) {
+  @media (max-width: 1200px) {
     width: 100% !important;
     height: auto;
-    max-width: 300px;
+    max-width: 500px;
+  }
+
+  @media (max-width: 670px) {
+    max-width: 100%;
   }
 `;
 
@@ -82,6 +87,48 @@ const Paragraph = styled.p`
   max-width: 550px;
   font-size: 21px;
   line-height: 1.6;
+  margin-bottom: 40px;
+`;
+
+const AccentParagraph = styled.p`
+  text-align: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  orphans: 3;
+  widows: 3;
+  max-width: 550px;
+  font-size: 21px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: var(--color-accent);
+  font-weight: 600;
+`;
+
+const Quote = styled.blockquote`
+  font-size: clamp(24px, 4vw, 55px);
+  line-height: 1;
+  color: var(--color-accent);
+  font-weight: 600;
+  max-width: 600px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 25%;
+  z-index: 2;
+
+  @media (max-width: 900px) {
+    margin-left: 15%;
+    padding-left: 65px;
+    max-width: 500px;
+    font-size: 40px;
+  }
+
+  @media (max-width: 670px) {
+    margin-left: 0;
+    max-width: 100%;
+  }
 `;
 
 const PhotoPair = styled.div`
@@ -90,11 +137,17 @@ const PhotoPair = styled.div`
   gap: 30px;
   max-width: 1000px;
   margin-top: 10px;
-  margin-bottom: -100px;
+  margin-bottom: 40px;
   align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
 
   @media (max-width: 670px) {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 `;
 
@@ -104,6 +157,10 @@ const PhotoPairItem = styled.div<{ $index: number }>`
     `
     margin-top: 300px;
   `}
+
+  @media (max-width: 900px) {
+    margin-top: 150px !important;
+  }
 
   @media (max-width: 670px) {
     margin-top: 0 !important;
@@ -117,8 +174,13 @@ const PhotoGrid = styled.div`
   gap: 20px;
   max-width: 900px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
 
   @media (max-width: 670px) {
     grid-template-columns: 1fr;
@@ -152,6 +214,11 @@ const PhotoGridItem = styled.div<{ $index: number }>`
     grid-row: 6 / 9;
   `}
 
+  @media (max-width: 900px) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
   @media (max-width: 670px) {
     grid-column: 1 !important;
     grid-row: auto !important;
@@ -161,7 +228,26 @@ const PhotoGridItem = styled.div<{ $index: number }>`
 const VideoWrapper = styled.div`
   max-width: 250px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+`;
+
+const VideoGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+
+  @media (max-width: 670px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+`;
+
+const VideoGridItem = styled.div`
+  width: 100%;
+  aspect-ratio: 16 / 9;
 `;
 
 const Iframe = styled.iframe`
@@ -202,6 +288,14 @@ const PlayerContainer = styled.div`
   }
 `;
 
+const CreditText = styled.span`
+  font-size: 14px;
+  color: var(--color-text);
+  opacity: 0.7;
+  margin-top: 4px;
+  display: block;
+`;
+
 export const Styled = {
   GlobalStyle,
   Title,
@@ -210,11 +304,16 @@ export const Styled = {
   Image,
   Link,
   Paragraph,
+  AccentParagraph,
+  Quote,
   PhotoPair,
   PhotoPairItem,
   PhotoGrid,
   PhotoGridItem,
   VideoWrapper,
+  VideoGrid,
+  VideoGridItem,
   Iframe,
   PlayerContainer,
+  CreditText,
 };

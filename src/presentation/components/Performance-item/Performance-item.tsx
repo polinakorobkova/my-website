@@ -1,17 +1,10 @@
 import { Data } from 'domain/mock/performances';
-import { Styled } from './styles';
-import { Upcoming } from '../Upcoming/Upcoming';
-import { Archive } from '../Archive/Archive';
+import { PortfolioItem } from '../Portfolio-item/Portfolio-item';
 
-interface prop {
+interface Prop {
   data: Data;
 }
 
-export const PerformanceItem: React.FC<prop> = ({ data }) => {
-  return (
-    <Styled.Container>
-      {data.upcoming && <Upcoming data={data} />}
-      {!data.upcoming && <Archive data={data} />}
-    </Styled.Container>
-  );
+export const PerformanceItem: React.FC<Prop> = ({ data }) => {
+  return <PortfolioItem data={data} />;
 };

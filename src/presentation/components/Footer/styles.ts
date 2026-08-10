@@ -21,6 +21,7 @@ const Blocks = styled.div`
   gap: 40px;
   width: 100%;
   padding: 30px 30px 0 30px;
+  margin-top: 20px;
   border-top: 1px solid var(--color-accent);
 
   :nth-child(1) {

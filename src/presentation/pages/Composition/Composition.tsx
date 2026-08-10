@@ -6,6 +6,14 @@ import { CompositionSection, data } from 'domain/mock/compositions';
 import { Styled } from './styles';
 import { NavigateBack } from 'presentation/components/Navigate-back/Navigate-back';
 import { Loader } from 'presentation/components/Loader/Loader';
+import { Highlight } from 'presentation/components/Highlight/Highlight';
+
+const renderHighlightedText = (text: string) => {
+  const parts = text.split(/\|\|(.+?)\|\|/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <Highlight key={i}>{part}</Highlight> : part,
+  );
+};
 
 export const CompositionPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,19 +29,32 @@ export const CompositionPage: React.FC = () => {
       case 'info':
         return compositionData && <CompositionInfo key={index} data={compositionData} />;
       case 'text':
-        return <Styled.Paragraph key={index}>{section.content}</Styled.Paragraph>;
+        return (
+          <Styled.Paragraph key={index}>
+            {section.content ? renderHighlightedText(section.content) : null}
+          </Styled.Paragraph>
+        );
+      case 'text-accent':
+        return (
+          <Styled.AccentParagraph key={index}>
+            {section.content ? renderHighlightedText(section.content) : null}
+          </Styled.AccentParagraph>
+        );
+      case 'quote':
+        return <Styled.Quote key={index}>{section.content}</Styled.Quote>;
       case 'photo-pair':
         return (
           <Styled.PhotoPair key={index}>
-            {section.images?.map((src, imgIndex) => (
+            {section.images?.map((image, imgIndex) => (
               <Styled.PhotoPairItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
                   className='custom-preview'
-                  src={src}
+                  src={image.src}
                   preview={PreviewType}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
+                {image.credit && <Styled.CreditText>{image.credit}</Styled.CreditText>}
               </Styled.PhotoPairItem>
             ))}
           </Styled.PhotoPair>
@@ -41,15 +62,16 @@ export const CompositionPage: React.FC = () => {
       case 'photo-grid':
         return (
           <Styled.PhotoGrid key={index}>
-            {section.images?.map((src, imgIndex) => (
+            {section.images?.map((image, imgIndex) => (
               <Styled.PhotoGridItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
                   className='custom-preview'
-                  src={src}
+                  src={image.src}
                   preview={PreviewType}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
+                {image.credit && <Styled.CreditText>{image.credit}</Styled.CreditText>}
               </Styled.PhotoGridItem>
             ))}
           </Styled.PhotoGrid>
@@ -76,6 +98,24 @@ export const CompositionPage: React.FC = () => {
               placeholder={<Loader />}
             />
           </Styled.VideoWrapper>
+        );
+      case 'video-grid':
+        return (
+          <Styled.VideoGrid key={index}>
+            {section.videos?.map((video, videoIndex) => (
+              <Styled.VideoGridItem key={videoIndex}>
+                <Styled.Iframe
+                  src={video.src}
+                  width='100%'
+                  height='100%'
+                  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                  referrerPolicy='strict-origin-when-cross-origin'
+                  allowFullScreen
+                />
+                {video.label && <Styled.CreditText>{video.label}</Styled.CreditText>}
+              </Styled.VideoGridItem>
+            ))}
+          </Styled.VideoGrid>
         );
       // case 'audio':
       //   return (
@@ -107,13 +147,15 @@ export const CompositionPage: React.FC = () => {
       <NavigateBack link='/compositions' />
       <Styled.Title>{compositionData?.name}</Styled.Title>
       <Styled.HeaderSection>
-        <Styled.CoverImage
-          className='custom-preview'
-          src={compositionData?.cover}
-          preview={PreviewType}
-          placeholder={<Loader />}
-          alt={compositionData?.name}
-        />
+        {compositionData?.cover && (
+          <Styled.CoverImage
+            className='custom-preview'
+            src={compositionData.cover}
+            preview={PreviewType}
+            placeholder={<Loader />}
+            alt={compositionData?.name}
+          />
+        )}
         {compositionData?.sections?.some((s) => s.type === 'info')
           ? compositionData.sections.map((section, index) =>
               section.type === 'info' ? renderSection(section, index) : null,

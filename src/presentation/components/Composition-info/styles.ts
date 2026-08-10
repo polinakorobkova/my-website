@@ -6,6 +6,10 @@ const Container = styled.div`
   gap: 0;
   width: 100%;
   max-width: 650px;
+
+  @media (max-width: 670px) {
+    max-width: 100%;
+  }
 `;
 
 const Row = styled.div`
@@ -19,6 +23,12 @@ const Row = styled.div`
   &:last-child {
     border-bottom: none;
   }
+
+  @media (max-width: 670px) {
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 0;
+  }
 `;
 
 const Label = styled.span`
@@ -26,6 +36,10 @@ const Label = styled.span`
   font-size: 21px;
   color: var(--color-accent);
   white-space: nowrap;
+
+  @media (max-width: 670px) {
+    font-size: 16px;
+  }
 `;
 
 const Value = styled.span`
@@ -33,6 +47,11 @@ const Value = styled.span`
   color: var(--color-text);
   text-align: right;
   font-family: 'Syne Mono', monospace;
+
+  @media (max-width: 670px) {
+    font-size: 16px;
+    text-align: left;
+  }
 `;
 
 const ProjectLink = styled.a`
@@ -41,6 +60,10 @@ const ProjectLink = styled.a`
   color: var(--color-text);
   text-decoration: none;
   margin-top: 15px;
+
+  @media (max-width: 670px) {
+    font-size: 20px;
+  }
 `;
 
 export const Styled = {

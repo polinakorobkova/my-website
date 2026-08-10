@@ -25,15 +25,16 @@ export const MaterialComponent: React.FC = () => {
       case 'photo-pair':
         return (
           <Styled.PhotoPair key={index}>
-            {section.images?.map((src, imgIndex) => (
+            {section.images?.map((image, imgIndex) => (
               <Styled.PhotoPairItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
                   className='custom-preview'
-                  src={src}
+                  src={image.src}
                   preview={PreviewType}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
+                {image.credit && <Styled.CreditText>{image.credit}</Styled.CreditText>}
               </Styled.PhotoPairItem>
             ))}
           </Styled.PhotoPair>
@@ -41,15 +42,16 @@ export const MaterialComponent: React.FC = () => {
       case 'photo-grid':
         return (
           <Styled.PhotoGrid key={index}>
-            {section.images?.map((src, imgIndex) => (
+            {section.images?.map((image, imgIndex) => (
               <Styled.PhotoGridItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
                   className='custom-preview'
-                  src={src}
+                  src={image.src}
                   preview={PreviewType}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
+                {image.credit && <Styled.CreditText>{image.credit}</Styled.CreditText>}
               </Styled.PhotoGridItem>
             ))}
           </Styled.PhotoGrid>

@@ -13,6 +13,7 @@ const Header = styled.div`
   color: var(--color-accent);
   font-size: 35px;
   margin-top: 120px;
+  margin-bottom: 20px;
   font-weight: 700;
   text-transform: uppercase;
 

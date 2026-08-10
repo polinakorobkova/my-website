@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+p, span, div {
+  white-space: pre-line;
+}
+
 :root {
   --color-text: #001D21;
   --color-background: #F0F1EB;
