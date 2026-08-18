@@ -13,7 +13,7 @@ const renderHighlightedText = (text: string) => {
 };
 
 export const About: React.FC = () => {
-  const { photo, cv, sections, portfolio } = data;
+  const { photo, cv, sections } = data;
 
   return (
     <ContentWrapper position='top'>
@@ -49,14 +49,6 @@ export const About: React.FC = () => {
       })}
       <Styled.CvLink href={cv} target='_blank' rel='noopener noreferrer'>
         cv {'>'}
-      </Styled.CvLink>
-      <Styled.CvLink
-        style={{ marginTop: '-10px' }}
-        href={portfolio}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        portfolio {'>'}
       </Styled.CvLink>
     </ContentWrapper>
   );
