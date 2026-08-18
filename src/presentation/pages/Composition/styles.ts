@@ -1,15 +1,16 @@
 import { Image as ANTImage } from 'antd';
 import { Link as RLink } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
-  .ant-image-preview-mask {
-    background-color: rgba(240, 241, 235, 0.2) !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-  }
-  .ant-image-preview-progress {
-    color: var(--color-text);
+const ExternalLink = styled.a`
+  max-width: max-content;
+  font-size: 20px;
+  text-transform: lowercase;
+  color: var(--color-accent);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -38,13 +39,7 @@ const CoverImage = styled(ANTImage)`
   width: 550px !important;
   height: 180px;
   object-fit: cover;
-  cursor: pointer;
-  transition: filter 0.3s ease;
   flex-shrink: 0;
-
-  &:hover {
-    filter: brightness(70%);
-  }
 
   @media (max-width: 1200px) {
     width: 100% !important;
@@ -61,12 +56,6 @@ const Image = styled(ANTImage)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: pointer;
-  transition: filter 0.3s ease;
-
-  &:hover {
-    filter: brightness(70%);
-  }
 `;
 
 const Link = styled(RLink)`
@@ -77,11 +66,6 @@ const Link = styled(RLink)`
 
 const Paragraph = styled.p`
   text-align: left;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   orphans: 3;
   widows: 3;
   max-width: 550px;
@@ -92,11 +76,6 @@ const Paragraph = styled.p`
 
 const AccentParagraph = styled.p`
   text-align: left;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   orphans: 3;
   widows: 3;
   max-width: 550px;
@@ -129,6 +108,38 @@ const Quote = styled.blockquote`
     margin-left: 0;
     max-width: 100%;
   }
+`;
+
+const TestimonialWrapper = styled.div`
+  max-width: 1100px;
+  margin-bottom: 40px;
+`;
+
+const Testimonial = styled.blockquote`
+  font-family: 'Syne Mono', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-accent);
+  font-style: italic;
+  max-width: 600px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: auto;
+  text-align: right;
+  padding-left: 40px;
+  border-left: 2px solid var(--color-accent);
+`;
+
+const TestimonialAuthor = styled.p`
+  font-family: 'Syne Mono', monospace;
+  font-size: 16px;
+  color: var(--color-accent);
+  font-style: normal;
+  font-weight: 600;
+  max-width: 600px;
+  margin-top: 15px;
+  margin-left: auto;
+  text-align: right;
 `;
 
 const PhotoPair = styled.div`
@@ -225,10 +236,22 @@ const PhotoGridItem = styled.div<{ $index: number }>`
   }
 `;
 
-const VideoWrapper = styled.div`
-  max-width: 250px;
+const PhotoWide = styled.div`
+  max-width: 1100px;
   margin-top: 10px;
   margin-bottom: 40px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const VideoWrapper = styled.div`
+  max-width: 800px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  width: 100%;
 `;
 
 const VideoGrid = styled.div`
@@ -250,9 +273,10 @@ const VideoGridItem = styled.div`
   aspect-ratio: 16 / 9;
 `;
 
-const Iframe = styled.iframe`
+const Iframe = styled.iframe<{ height?: string }>`
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: ${({ height }) => (height ? 'auto' : '16 / 9')};
+  height: ${({ height }) => height || 'auto'};
 `;
 
 const PlayerContainer = styled.div`
@@ -297,19 +321,23 @@ const CreditText = styled.span`
 `;
 
 export const Styled = {
-  GlobalStyle,
   Title,
   HeaderSection,
   CoverImage,
   Image,
   Link,
+  ExternalLink,
   Paragraph,
   AccentParagraph,
   Quote,
+  TestimonialWrapper,
+  Testimonial,
+  TestimonialAuthor,
   PhotoPair,
   PhotoPairItem,
   PhotoGrid,
   PhotoGridItem,
+  PhotoWide,
   VideoWrapper,
   VideoGrid,
   VideoGridItem,

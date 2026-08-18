@@ -41,10 +41,10 @@ const Content = styled.div`
 
 const NoteSlider = styled.div`
   width: 100%;
-  height: 500px;
+  height: 620px;
   min-height: 0;
   overflow: hidden;
-  padding-top: 100px;
+  padding-top: 120px;
 
   @media (max-width: 1015px) {
     padding-top: 30px;
@@ -53,9 +53,9 @@ const NoteSlider = styled.div`
 
 const NoteTrack = styled.div`
   display: flex;
-  height: 500px;
+  height: 620px;
   width: max-content;
-  animation: slideRightToLeft 60s linear infinite;
+  animation: slideRightToLeft 120s linear infinite;
   will-change: transform;
 
   @keyframes slideRightToLeft {
@@ -71,13 +71,13 @@ const NoteTrack = styled.div`
 const NoteImageWrap = styled.div`
   height: 500px;
   flex-shrink: 0;
-  overflow: hidden;
+  overflow: visible;
 `;
 
 const NoteImage = styled.img`
   height: 500px;
   width: auto;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 const Container = styled.div`

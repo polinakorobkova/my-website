@@ -40,7 +40,7 @@ export const Text: React.FC = () => {
         if (section.type === 'photo') {
           return (
             <Styled.PhotoWrapper key={index} $align={section.photoAlign}>
-              <Styled.Image src={section.src} alt="" />
+              <Styled.Image src={section.src} alt="" preview={false} />
             </Styled.PhotoWrapper>
           );
         }

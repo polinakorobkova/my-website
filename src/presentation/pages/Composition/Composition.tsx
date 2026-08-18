@@ -7,22 +7,26 @@ import { Styled } from './styles';
 import { NavigateBack } from 'presentation/components/Navigate-back/Navigate-back';
 import { Loader } from 'presentation/components/Loader/Loader';
 import { Highlight } from 'presentation/components/Highlight/Highlight';
+import { Accent } from 'presentation/components/Accent/Accent';
 
 const renderHighlightedText = (text: string) => {
+  // First split by ||...|| for highlight
   const parts = text.split(/\|\|(.+?)\|\|/g);
-  return parts.map((part, i) =>
-    i % 2 === 1 ? <Highlight key={i}>{part}</Highlight> : part,
-  );
+  return parts.map((part, i) => {
+    if (i % 2 === 1) {
+      return <Highlight key={i}>{part}</Highlight>;
+    }
+    // Then split by **...** for accent (italic + color)
+    const accentParts = part.split(/\*\*(.+?)\*\*/g);
+    return accentParts.map((accentPart, j) =>
+      j % 2 === 1 ? <Accent key={`${i}-${j}`}>{accentPart}</Accent> : accentPart
+    );
+  });
 };
 
 export const CompositionPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const compositionData = data.find((item) => item.slug === id);
-
-  const PreviewType = {
-    mask: null,
-    toolbarRender: () => null,
-  };
 
   const renderSection = (section: CompositionSection, index: number) => {
     switch (section.type) {
@@ -42,15 +46,23 @@ export const CompositionPage: React.FC = () => {
         );
       case 'quote':
         return <Styled.Quote key={index}>{section.content}</Styled.Quote>;
+      case 'testimonial':
+        return (
+          <Styled.TestimonialWrapper key={index}>
+            <Styled.Testimonial>{section.content}</Styled.Testimonial>
+            {section.author && (
+              <Styled.TestimonialAuthor>— {section.author}</Styled.TestimonialAuthor>
+            )}
+          </Styled.TestimonialWrapper>
+        );
       case 'photo-pair':
         return (
           <Styled.PhotoPair key={index}>
             {section.images?.map((image, imgIndex) => (
               <Styled.PhotoPairItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
-                  className='custom-preview'
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
@@ -65,9 +77,8 @@ export const CompositionPage: React.FC = () => {
             {section.images?.map((image, imgIndex) => (
               <Styled.PhotoGridItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
-                  className='custom-preview'
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
@@ -76,29 +87,35 @@ export const CompositionPage: React.FC = () => {
             ))}
           </Styled.PhotoGrid>
         );
-      case 'video':
+      case 'photo-wide':
+        return (
+          <Styled.PhotoWide key={index}>
+            {section.images?.map((image, imgIndex) => (
+              <div key={imgIndex}>
+                <Styled.Image
+                  src={image.src}
+                  placeholder={<Loader />}
+                  alt={compositionData?.name}
+                />
+                {image.credit && <Styled.CreditText>{image.credit}</Styled.CreditText>}
+              </div>
+            ))}
+          </Styled.PhotoWide>
+        );
+      case 'video': {
+        const isSoundCloud = section.src?.includes('soundcloud.com');
         return (
           <Styled.VideoWrapper key={index}>
-            <Styled.Image
-              width={'100%'}
-              preview={{
-                mask: null,
-                destroyOnClose: true,
-                imageRender: () => (
-                  <Styled.Iframe
-                    src={section.src}
-                    allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                    referrerPolicy='strict-origin-when-cross-origin'
-                    allowFullScreen
-                  />
-                ),
-                toolbarRender: () => null,
-              }}
-              src='/preview.png'
-              placeholder={<Loader />}
+            <Styled.Iframe
+              src={section.src}
+              height={isSoundCloud ? '166' : undefined}
+              allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerPolicy='strict-origin-when-cross-origin'
+              allowFullScreen
             />
           </Styled.VideoWrapper>
         );
+      }
       case 'video-grid':
         return (
           <Styled.VideoGrid key={index}>
@@ -127,14 +144,14 @@ export const CompositionPage: React.FC = () => {
       //   );
       case 'link':
         return (
-          <Styled.Link
+          <Styled.ExternalLink
             key={index}
-            to={section.href || '#'}
+            href={section.href || '#'}
             target='_blank'
             rel='noopener noreferrer'
           >
             {section.label || section.content}
-          </Styled.Link>
+          </Styled.ExternalLink>
         );
       default:
         return null;
@@ -143,15 +160,13 @@ export const CompositionPage: React.FC = () => {
 
   return (
     <ContentWrapper position={compositionData?.trackUrl ? 'audio' : 'top'}>
-      <Styled.GlobalStyle />
       <NavigateBack link='/compositions' />
       <Styled.Title>{compositionData?.name}</Styled.Title>
       <Styled.HeaderSection>
         {compositionData?.cover && (
           <Styled.CoverImage
-            className='custom-preview'
             src={compositionData.cover}
-            preview={PreviewType}
+            preview={false}
             placeholder={<Loader />}
             alt={compositionData?.name}
           />

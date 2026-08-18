@@ -34,7 +34,7 @@ export const LayoutPage: React.FC = () => {
           )}
         </Styled.Content>
         <Footer />
-        <Menu />
+        <Menu isHome={isHome} />
         <Burger />
       </Styled.Layout>
     </Div100vh>

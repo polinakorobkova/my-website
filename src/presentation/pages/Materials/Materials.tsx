@@ -10,11 +10,6 @@ export const Materials: React.FC = () => {
   const id = 'anonymous-materials';
   const compositionData = data.find((item) => item.slug === id);
 
-  const PreviewType = {
-    mask: null,
-    toolbarRender: () => null,
-  };
-
   const renderSection = (section: CompositionSection, index: number) => {
     switch (section.type) {
       case 'info':
@@ -27,9 +22,8 @@ export const Materials: React.FC = () => {
             {section.images?.map((image, imgIndex) => (
               <div key={imgIndex}>
                 <Styled.Image
-                  className='custom-preview'
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
@@ -44,9 +38,8 @@ export const Materials: React.FC = () => {
             {section.images?.map((image, imgIndex) => (
               <div key={imgIndex}>
                 <Styled.Image
-                  className='custom-preview'
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
@@ -97,12 +90,10 @@ export const Materials: React.FC = () => {
 
   return (
     <ContentWrapper position={compositionData?.trackUrl ? 'audio' : 'top'}>
-      <Styled.GlobalStyle />
       <NavigateBack link='/compositions' />
       <Styled.CoverImage
-        className='custom-preview'
         src={compositionData?.cover}
-        preview={PreviewType}
+        preview={false}
         placeholder={<Loader />}
         alt={compositionData?.name}
       />

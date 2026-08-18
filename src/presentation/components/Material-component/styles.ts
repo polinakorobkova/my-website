@@ -1,17 +1,6 @@
 import { Image as ANTImage } from 'antd';
 import { Link as RLink } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  .ant-image-preview-mask {
-    background-color: rgba(240, 241, 235, 0.2) !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-  }
-  .ant-image-preview-progress {
-    color: var(--color-text);
-  }
-`;
+import styled from 'styled-components';
 
 const Title = styled.h1`
   color: var(--color-accent);
@@ -37,13 +26,7 @@ const CoverImage = styled(ANTImage)`
   width: 550px !important;
   height: 180px;
   object-fit: cover;
-  cursor: pointer;
-  transition: filter 0.3s ease;
   flex-shrink: 0;
-
-  &:hover {
-    filter: brightness(70%);
-  }
 
   @media (max-width: 670px) {
     width: 100% !important;
@@ -56,12 +39,6 @@ const Image = styled(ANTImage)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: pointer;
-  transition: filter 0.3s ease;
-
-  &:hover {
-    filter: brightness(70%);
-  }
 `;
 
 const Link = styled(RLink)`
@@ -72,11 +49,6 @@ const Link = styled(RLink)`
 
 const Paragraph = styled.p`
   text-align: left;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   orphans: 3;
   widows: 3;
   max-width: 550px;
@@ -211,7 +183,6 @@ const PlayerContainer = styled.div`
 `;
 
 export const Styled = {
-  GlobalStyle,
   Title,
   HeaderSection,
   CoverImage,

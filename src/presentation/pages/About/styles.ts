@@ -1,13 +1,5 @@
 import { Image as ANTImage } from 'antd';
-import styled, { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  .ant-image-preview-mask {
-    background-color: rgba(240, 241, 235, 0.2) !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-  }
-`;
+import styled from 'styled-components';
 
 const Header = styled.div`
   color: var(--color-accent);
@@ -38,21 +30,10 @@ const Image = styled(ANTImage)`
   object-position: center top;
   object-fit: cover;
   filter: grayscale(100%);
-  cursor: pointer;
-  transition: filter 0.3s ease;
-
-  &:hover {
-    filter: grayscale(50%);
-  }
 `;
 
 const Paragraph = styled.p`
   text-align: left;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   orphans: 3;
   widows: 3;
   max-width: 550px;
@@ -100,7 +81,6 @@ const CvLink = styled.a`
 `;
 
 export const Styled = {
-  GlobalStyle,
   PhotoWrapper,
   Image,
   Paragraph,

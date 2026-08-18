@@ -1,16 +1,5 @@
 import { Image as ANTImage } from 'antd';
-import styled, { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  .ant-image-preview-mask {
-    background-color: rgba(240, 241, 235, 0.2) !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-  }
-  .ant-image-preview-progress {
-    color: var(--color-text);
-  }
-`;
+import styled from 'styled-components';
 
 const DateColumn = styled.div`
   font-size: 20px;
@@ -52,8 +41,6 @@ const Text = styled.div`
 
 const Paragraph = styled.p`
   text-align: justify;
-  hyphens: auto;
-  word-wrap: break-word;
   font-size: 20px;
   margin-bottom: 20px;
 `;
@@ -147,12 +134,6 @@ const GridImage = styled(ANTImage)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: pointer;
-  transition: filter 0.3s ease;
-
-  &:hover {
-    filter: brightness(70%);
-  }
 `;
 
 const PhotoGrid7a = styled.div`
@@ -260,7 +241,6 @@ const GridCell = styled.div`
 `;
 
 export const Styled = {
-  GlobalStyle,
   CardsContainer,
   ContentContainer,
   HighlightedContentContainer,

@@ -9,14 +9,8 @@ export const Collaboration: React.FC = () => {
 
   const photos = [photo1, photo2];
 
-  const PreviewType = {
-    mask: null,
-    toolbarRender: () => null,
-  };
-
   return (
     <ContentWrapper position='top'>
-      <Styled.GlobalStyle />
       <Styled.Header>On collaborating with me</Styled.Header>
       {sections.map((section, index) => {
         if (section.type === 'photo') {
@@ -26,7 +20,7 @@ export const Collaboration: React.FC = () => {
             <Wrapper key={index}>
               <Styled.Image
                 src={photos[section.photoIndex]}
-                preview={PreviewType}
+                preview={false}
                 placeholder={<Loader />}
                 alt='lin korobkova'
               />

@@ -9,13 +9,16 @@ export interface CompositionSection {
     | 'text'
     | 'text-accent'
     | 'quote'
+    | 'testimonial'
     | 'photo-pair'
     | 'photo-grid'
+    | 'photo-wide'
     | 'video'
     | 'video-grid'
     | 'audio'
     | 'link';
   content?: string;
+  author?: string;
   src?: string;
   href?: string;
   images?: ImageItem[];
@@ -54,7 +57,7 @@ export interface CompositionData {
 export const data: CompositionData[] = [
   {
     id: 1,
-    name: 'implanted memories',
+    name: 'implanted memories (2019-2026)',
     slug: 'implanted-memories',
     cover:
       'https://polina-image.s3.us-east-2.amazonaws.com/convert/implanted_memories_cover.webp',
@@ -76,6 +79,14 @@ export const data: CompositionData[] = [
       {
         type: 'text',
         content: `Imagine a solitary human silhouette standing in dim blue lighting faced to a peculiar construction equipped with pipes, multiple keyboards and wires. Since the shadowy figure is turned in the opposite direction from the audience and the hall is rather gloomy, you cannot discern her face. Instead, the spotlight–literally and metaphorically–is on this steam-punk machinery, archaic and futuristic at once. The atmosphere resambles that of a cathedral–majestic and slightly ominous.`,
+      },
+      {
+        type: 'photo-pair',
+        images: [
+          {
+            src: '/implanted_memories/IMG_0021_1.JPG',
+          },
+        ],
       },
       {
         type: 'text',
@@ -110,30 +121,59 @@ export const data: CompositionData[] = [
       },
       {
         type: 'text',
-        content: `||The ambivalence between radical intimacy and the forced performativity of spectacle–the exposed palette of human sensitivity and the mechanical, articulated indifference–shapes a critical investigation into the architecture of personal and collective memory and its role in the formation of gendered representation.||`,
+        content: `**The ambivalence between radical intimacy and the forced performativity of spectacle–the exposed palette of human sensitivity and the mechanical, articulated indifference–shapes a critical investigation into the architecture of personal and collective memory and its role in the formation of gendered representation.**`,
+      },
+      {
+        type: 'photo-pair',
+        images: [
+          {
+            src: '/implanted_memories/image1.jpg',
+          },
+          {
+            src: '/implanted_memories/image3.jpg',
+          },
+        ],
       },
       {
         type: 'text',
         content: `The work is situated between experimental composition, theatrical ritualistic procession and a pop gig, addressing a wide spectre of audience–the familiar faces in new music, contemporary art enthusiasts, and those seeking pleasure in new forms of reflexive experience.`,
       },
       {
+        type: 'photo-wide',
+        images: [
+          {
+            src: '/implanted_memories/image4.JPG',
+          },
+        ],
+      },
+      {
         type: 'text',
         content: `The premiere of a 25-minute excerpt took place in Stuttgart in the framework of ECLAT festival 2026.`,
       },
       {
-        type: 'video-grid',
-        videos: [
-          { src: 'https://youtu.be/tdw9pSGLKRk' },
-          { src: 'https://www.youtube.com/watch?v=ZRpUV85CZ_w' },
-        ],
+        type: 'video',
+        src: 'https://player.vimeo.com/video/1160793054?h=41995d9bdd&share=copy',
       },
+      {
+        type: 'testimonial',
+        content: `I attended the premiere of Lin Korobkova's implanted memories this February at the Eclat Festival in Stuttgart. As everybody knows, it can be quite difficult to make a strong impression at a festival where one premiere follows another, but this piece immediately stood out. Its inherent tension between rather simple basic material and an extremely refined reinterpretation made it at once easy to follow and utterly compelling in the freshness of its approach.
+
+The addition of a mechanical organ — half history, half future — introduces another carefully calculated contradiction, making the piece even more striking. And while the exaggerated precision of the notation treats the singer almost like a kind of voice robot, it also brings out the very best in her. It would be hard to find a more differentiated performance this year than Johanna Vargas' interpretation of implanted memories.
+
+Add to this the fact that the piece is also highly entertaining, and it seems obvious that it should be performed again, in its entirety, as soon as possible.`,
+        author: 'Sebastian Claren',
+      },
+      // {
+      //   type: 'video',
+      //   src: 'https://www.youtube.com/embed/Kqgv1BRcezg',
+      // },
     ],
   },
   {
     id: 2,
-    name: 'tap my head and mike my brain, stick that needle in my vein',
+    name: 'tap my head and mike my brain, stick that needle in my vein (2024-2025) ',
     slug: 'tap-my-head',
-    cover: '/tap_my_head/image1.jpg',
+    cover: '/tap_my_head/imageCover.jpg',
     date: '(2024-2025)',
     orchestra: '',
     time: '20 minutes',
@@ -159,7 +199,7 @@ export const data: CompositionData[] = [
       {
         type: 'photo-pair',
         images: [
-          { src: '/tap_my_head/image2.jpg', credit: '@ Andrea Romeo' },
+          { src: '/tap_my_head/image2.jpg' },
           { src: '/tap_my_head/image3.jpg', credit: '@ Andrea Romeo' },
         ],
       },
@@ -177,13 +217,64 @@ export const data: CompositionData[] = [
       },
       {
         type: 'text',
-        content: `||Musicians exit the space of performance, leaving mechanical devices to produce sounds autonomously. Human presence is no longer a necessary condition for the process to go on.||`,
+        content: `**Musicians exit the space of performance, leaving mechanical devices to produce sounds autonomously. Human presence is no longer a necessary condition for the process to go on.**`,
+      },
+      // {
+      //   type: 'video',
+      //   src: 'https://www.youtube.com/embed/iCb7Sje-jnU',
+      // },
+    ],
+  },
+  {
+    id: 4,
+    name: 'eight private spaces (work-in-progress)',
+    slug: 'eight-private-spaces',
+    cover: '/eight_private/image1.jpg',
+    date: '',
+    orchestra: '',
+    time: '18 minutes',
+    description: '',
+    duration: '18 minutes',
+    instrumentation: '18 musicians, 26 loudspeakers, and 2 spaces',
+    performedBy: '',
+    commission: 'Klangforum Wien',
+    score: '',
+    sections: [
+      {
+        type: 'info',
+      },
+      {
+        type: 'text',
+        content: `Picture a concert hall filled with twenty-eight loudspeakers varying in size, quality, and placement: some displayed like sculptures on a raised platform at its centre, as though occupying the places of absent musicians; others suspended from the ceiling or concealed entirely from view. The audience is free to roam through the microclimate generated by this chaotically structured sound system—moving across the hall, lying on cushions, or observing one another's reactions.`,
+      },
+      {
+        type: 'text-accent',
+        content: `From only a few of the loudspeakers emerges a striking mixture of a field recording of habitual yet seemingly incidental domestic actions—brushing one's teeth, opening drawers—with lounge music commonly encountered in shopping centres or airports. The latter is by no means independent of the activities taking place in the apartment. More: the music appears to hold sway over them, directing and propelling the movements as its tempo accelerates or slackens in step with the footsteps.`,
+      },
+      {
+        type: 'photo-pair',
+        images: [
+          { src: '/eight_private/image2.jpg' },
+          { src: '/eight_private/image3.jpg' },
+        ],
+      },
+      {
+        type: 'text',
+        content: `After some time, an abrupt cut disrupts the established flow: a new constellation of active loudspeakers instantly transports the audience into another private space, with background music of its own. This sudden switch recurs seven more times over the course of the piece, bringing the conditions of sound's mediation to the foreground: each recording is coupled with a different loudspeaker configuration and quality of reproduction. ||Do the nagging buzz, the bass-starved compression, and the excessive delay originate in the loudspeakers, or are these distortions already inscribed in the tracks themselves?||`,
+      },
+      {
+        type: 'text',
+        content: `||As the audience is drawn deeper into this uncanny apparatus of surveillance, the provenance of the recordings—and eventually their status as recordings at all—becomes increasingly uncertain.|| Sounds of live instruments occasionally emerge from an adjacent room and coincide with the tracks, further destabilising the distinction between document and event. The performance draws to a close with a short circuit: only at the very end do several performers enter the hall, microphones in hand, amplifying its ambient noise back into the very space that produces it.`,
+      },
+      {
+        type: 'text',
+        content: `||The catalogue of 'eight private spaces' investigates music as a mechanism of behavioural regulation, the artifice inscribed in documentary recordings, and the unstable boundary between listening and surveillance.||`,
       },
     ],
   },
   {
     id: 3,
-    name: 'flashbacks to perform (2019-...)',
+    name: 'flashbacks to perform (work-in-progress)',
     slug: 'flashbacks-to-perform',
     cover:
       'https://polina-image.s3.us-east-2.amazonaws.com/convert/flashbacks_to_perform_cover.webp',
@@ -215,8 +306,8 @@ export const data: CompositionData[] = [
       {
         type: 'photo-grid',
         images: [
-          { src: '/flashback/images/image1.jpg', credit: '@ Astrid Ackermann' },
-          { src: '/flashback/images/image2.jpg', credit: '@ Astrid Ackermann' },
+          { src: '/flashback/images/image1.jpg' },
+          { src: '/flashback/images/image2.jpg' },
           { src: '/flashback/images/image3.jpg', credit: '@ Astrid Ackermann' },
         ],
       },
@@ -229,6 +320,13 @@ export const data: CompositionData[] = [
         content: `||The left hand remains deliberately muted for much of the piece—imagined rather than heard, present as a phantom.||`,
       },
       {
+        type: 'photo-pair',
+        images: [
+          { src: '/flashback/composition/image1.jpg' },
+          { src: '/flashback/composition/image2.jpg' },
+        ],
+      },
+      {
         type: 'text',
         content: `||The score becomes a surface for documenting the sensation of playing itself, using different colours to indicate weight, arrows marking the precise position of the arms, and lines tying the tempo of playing to performer's breathing.||`,
       },
@@ -236,46 +334,14 @@ export const data: CompositionData[] = [
         type: 'text',
         content: `Dwelling as much in what is negatively present—that is, unheard—as in what is actually sounded, the piece traces the persistence of embodied technique after its interruption: ||a memory of playing that survives as symptom, absence, and return.||`,
       },
-    ],
-  },
-  {
-    id: 4,
-    name: 'eight private spaces',
-    slug: 'eight-private-spaces',
-    cover: '',
-    date: '',
-    orchestra: '',
-    time: '18 minutes',
-    description: '',
-    duration: '18 minutes',
-    instrumentation: '18 musicians, 26 loudspeakers, and 2 spaces',
-    performedBy: '',
-    commission: 'Klangforum Wien',
-    score: '',
-    sections: [
       {
-        type: 'info',
+        type: 'video',
+        src: 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/korobkova/flashbacks-to-performs-i-2020&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false',
       },
-      {
-        type: 'text',
-        content: `Picture a concert hall filled with twenty-eight loudspeakers varying in size, quality, and placement: some displayed like sculptures on a raised platform at its centre, as though occupying the places of absent musicians; others suspended from the ceiling or concealed entirely from view. The audience is free to roam through the microclimate generated by this chaotically structured sound system—moving across the hall, lying on cushions, or observing one another's reactions.`,
-      },
-      {
-        type: 'text-accent',
-        content: `From only a few of the loudspeakers emerges a striking mixture of a field recording of habitual yet seemingly incidental domestic actions—brushing one's teeth, opening drawers—with lounge music commonly encountered in shopping centres or airports. The latter is by no means independent of the activities taking place in the apartment. More: the music appears to hold sway over them, directing and propelling the movements as its tempo accelerates or slackens in step with the footsteps.`,
-      },
-      {
-        type: 'text',
-        content: `After some time, an abrupt cut disrupts the established flow: a new constellation of active loudspeakers instantly transports the audience into another private space, with background music of its own. This sudden switch recurs seven more times over the course of the piece, bringing the conditions of sound's mediation to the foreground: each recording is coupled with a different loudspeaker configuration and quality of reproduction. ||Do the nagging buzz, the bass-starved compression, and the excessive delay originate in the loudspeakers, or are these distortions already inscribed in the tracks themselves?||`,
-      },
-      {
-        type: 'text',
-        content: `||As the audience is drawn deeper into this uncanny apparatus of surveillance, the provenance of the recordings—and eventually their status as recordings at all—becomes increasingly uncertain.|| Sounds of live instruments occasionally emerge from an adjacent room and coincide with the tracks, further destabilising the distinction between document and event. The performance draws to a close with a short circuit: only at the very end do several performers enter the hall, microphones in hand, amplifying its ambient noise back into the very space that produces it.`,
-      },
-      {
-        type: 'text',
-        content: `||The catalogue of 'eight private spaces' investigates music as a mechanism of behavioural regulation, the artifice inscribed in documentary recordings, and the unstable boundary between listening and surveillance.||`,
-      },
+      // {
+      //   type: 'video',
+      //   src: 'https://www.youtube.com/embed/QKFeYKAm-5g',
+      // },
     ],
   },
   {
@@ -292,7 +358,6 @@ export const data: CompositionData[] = [
     instrumentation: 'string quartet with transducers',
     performedBy: 'Quartetto Maurice',
     commission: "winner of the BTzM Composers' Workshop 2021",
-    videoSrc: 'https://www.youtube.com/embed/eIGrrDLE1Zs',
     trackUrl:
       'https://polina-sound.s3.us-east-2.amazonaws.com/haunted_place/haunted_place_audio-MP3_xmjide.mp3',
     score: '',
@@ -311,6 +376,10 @@ export const data: CompositionData[] = [
       {
         type: 'text',
         content: `Beyond its recursive setting and principle of organisation, 'haunted place' is an unironic sentimental ode to personal and collective practices of escapism, compulsive repetitions of the Same, and loneliness.`,
+      },
+      {
+        type: 'video',
+        src: 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/korobkova/haunted-place-2021&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false',
       },
     ],
   },

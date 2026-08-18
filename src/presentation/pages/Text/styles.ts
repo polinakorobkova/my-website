@@ -1,32 +1,28 @@
 import { Image as ANTImage } from 'antd';
 import { Link as RLink } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  .ant-image-preview-mask {
-    background-color: rgba(240, 241, 235, 0.2) !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-  }
-`;
+import styled from 'styled-components';
 
 const Link = styled(RLink)`
+  display: inline-block;
   max-width: max-content;
+  font-family: 'Syne Mono', monospace;
   font-size: 20px;
+  color: var(--color-accent);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Paragraph = styled.p`
   text-align: left;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   orphans: 3;
   widows: 3;
   max-width: 550px;
   font-size: 21px;
   line-height: 1.6;
+  margin-bottom: 20px;
 `;
 
 const Date = styled.p`
@@ -35,10 +31,12 @@ const Date = styled.p`
   color: var(--color-text);
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   color: var(--color-accent);
-  max-width: 550px;
-  font-size: 20px;
+  font-family: 'Syne Mono', monospace;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 30px;
 `;
 
 const PhotoWrapper = styled.div<{ $align?: 'left' | 'right' }>`
@@ -57,12 +55,6 @@ const Image = styled(ANTImage)`
   width: 100%;
   height: auto;
   object-fit: cover;
-  cursor: pointer;
-  transition: filter 0.3s ease;
-
-  &:hover {
-    filter: brightness(70%);
-  }
 `;
 
 const Quote = styled.blockquote`
@@ -90,7 +82,6 @@ const Quote = styled.blockquote`
 `;
 
 export const Styled = {
-  GlobalStyle,
   Link,
   Paragraph,
   Title,

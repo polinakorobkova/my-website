@@ -42,14 +42,14 @@ export const Footer: React.FC = () => {
           <Styled.BlockLink
             target='_blank'
             rel='noopener noreferrer'
-            to='https://www.youtube.com/@PolinaKorobkova/featured'
+            to='https://www.youtube.com/@nomadunya'
           >
             youtube
           </Styled.BlockLink>
           <Styled.BlockLink
             target='_blank'
             rel='noopener noreferrer'
-            to='mailto:p.korobkova@gmail.com'
+            to='mailto:linkorobkova@gmail.com'
           >
             email
           </Styled.BlockLink>

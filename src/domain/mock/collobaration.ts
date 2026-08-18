@@ -25,12 +25,16 @@ export const data = {
       content: `The possibility of working with people willing to embark on such an endeavour is of paramount importance to me since i understand performers as collaborators whose musical knowledge, personalities, modes of self-presentation, and lived experiences may all enter the artistic realm, insofar as they choose to bring them into it. Such an exchange requires time for discussion, testing, and revision, all of which i consider integral to the composition itself.`,
     },
     {
+      type: 'highlight' as const,
+      content: `Such an exchange requires time for discussion, testing, and revision, all of which i consider integral to the composition itself.`,
+    },
+    {
       type: 'text' as const,
       content: `Many of my pieces can be tricky to realise as they may call for specialised skills, performative actions or unusual equipment, therefore usually they cannot be prepared at short notice. My dream is to bring my compositions to the streets, clubs, and other unexpected places, where they can be encountered by audiences beyond the contemporary-music circuit.`,
     },
     {
       type: 'quote' as const,
-      content: `If you are willing to enter into an experimental process, drawn to challenges, and fascinated by the glow of the unknown\u00A0— please reach out to me! I’m always open to new collaborations, ideas, and dialogues.`,
+      content: `If you are eager to enter into an experimental process, drawn to challenges, and fascinated by the glow of the unknown\u00A0— please reach out to me! I’m always open to new collaborations, ideas, and dialogues.`,
     },
     {
       type: 'contact' as const,

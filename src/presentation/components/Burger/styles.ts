@@ -12,7 +12,7 @@ const Burger = styled.div`
   top: 10px;
   left: 0px;
 
-  @media (max-width: 1175px) {
+  @media (max-width: 1315px) {
     display: block;
   }
 `;

@@ -76,7 +76,7 @@ export const Burger: React.FC = () => {
                 onClick={handleChange}
                 target='_blank'
                 rel='noopener noreferrer'
-                to='https://www.youtube.com/@PolinaKorobkova/featured'
+                to='https://www.youtube.com/@nomadunya'
               >
                 youtube
               </Styled.Link>
@@ -84,7 +84,7 @@ export const Burger: React.FC = () => {
                 onClick={handleChange}
                 target='_blank'
                 rel='noopener noreferrer'
-                to='mailto:p.korobkova@gmail.com'
+                to='mailto:linkorobkova@gmail.com'
               >
                 e-mail
               </Styled.Link>

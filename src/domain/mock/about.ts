@@ -1,6 +1,6 @@
 export const data = {
   photo: '/photoAbout.png',
-  cv: 'https://drive.google.com/file/d/1SWSODBR6ww7lLq9pD15zd-uKu1GxK7Ve/view?usp=drive_link',
+  cv: 'https://drive.google.com/file/d/14Pfwniek2KMFHKZiJFIxNYrV5zpwhzKn/view?usp=share_link',
   portfolio: 'https://',
   sections: [
     {

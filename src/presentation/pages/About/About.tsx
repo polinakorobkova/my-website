@@ -15,22 +15,16 @@ const renderHighlightedText = (text: string) => {
 export const About: React.FC = () => {
   const { photo, cv, sections, portfolio } = data;
 
-  const PreviewType = {
-    mask: null,
-    toolbarRender: () => null,
-  };
-
   return (
     <ContentWrapper position='top'>
       <Styled.Header>About</Styled.Header>
-      <Styled.GlobalStyle />
       {sections.map((section, index) => {
         if (section.type === 'photo') {
           return (
             <Styled.PhotoWrapper key={index}>
               <Styled.Image
                 src={photo}
-                preview={PreviewType}
+                preview={false}
                 placeholder={<Loader />}
                 alt='lin korobkova'
               />

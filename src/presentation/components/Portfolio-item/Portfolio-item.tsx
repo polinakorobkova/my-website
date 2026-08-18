@@ -10,11 +10,6 @@ interface Prop {
   data: Data;
 }
 
-const PreviewType = {
-  mask: null,
-  toolbarRender: () => null,
-};
-
 const renderSection = (section: Section, index: number, alt?: string, isMobile?: boolean) => {
   switch (section.type) {
     case 'text':
@@ -33,7 +28,7 @@ const renderSection = (section: Section, index: number, alt?: string, isMobile?:
         <Styled.SinglePhoto key={index}>
           <Styled.GridImage
             src={section.src}
-            preview={PreviewType}
+            preview={false}
             placeholder={<Loader />}
             alt={alt}
           />
@@ -59,7 +54,7 @@ const renderSection = (section: Section, index: number, alt?: string, isMobile?:
               <Styled.GridCell key={i} style={pos}>
                 <Styled.GridImage
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={alt}
                 />
@@ -90,7 +85,7 @@ const renderSection = (section: Section, index: number, alt?: string, isMobile?:
               <Styled.GridCell key={i} style={pos}>
                 <Styled.GridImage
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={alt}
                 />
@@ -117,7 +112,7 @@ const renderSection = (section: Section, index: number, alt?: string, isMobile?:
               <Styled.GridCell key={i} style={pos}>
                 <Styled.GridImage
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={alt}
                 />
@@ -144,7 +139,7 @@ const renderSection = (section: Section, index: number, alt?: string, isMobile?:
               <Styled.GridCell key={i} style={pos}>
                 <Styled.GridImage
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={alt}
                 />

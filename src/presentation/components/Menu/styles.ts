@@ -1,8 +1,8 @@
 import { NavLink as RLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  position: fixed;
+const Container = styled.div<{ $isHome?: boolean }>`
+  position: ${({ $isHome }) => ($isHome ? 'absolute' : 'fixed')};
   top: 0;
   right: 0;
   display: flex;
@@ -12,7 +12,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: end;
 
-  @media (max-width: 1175px) {
+  @media (max-width: 1315px) {
     display: none;
   }
 `;

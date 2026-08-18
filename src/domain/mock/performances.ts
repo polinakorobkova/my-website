@@ -2,7 +2,7 @@ export const data: Data[] = [
   {
     id: 1,
     data: '04 March 2026',
-    title: 'Performative lecture about\n‘implanted memories’',
+    title: 'Performative lecture about ‘implanted memories’',
     sections: [
       {
         type: 'text',
@@ -19,12 +19,16 @@ export const data: Data[] = [
     active: true,
     data: '06 February 2026',
     title:
-      'Premiere of a 25-minute\nexcerpt from\n‘implanted memories’\n(2019-2026) and panel discussion with Christine Fischer and Lydia Jeschke',
+      'Premiere of a 25-minute excerpt from ‘implanted memories’ (2019-2026) and panel discussion with Christine Fischer and Lydia Jeschke',
     sections: [
       {
         type: 'names',
         name: `Johanna Vargas`,
-        prof: `vocal and performance automated, microtonal arciorgano, arciorgano`,
+        prof: `vocal and performance automated`,
+      },
+      {
+        type: 'names',
+        name: `microtonal, automated arciorgano`,
       },
       {
         type: 'names',
@@ -56,7 +60,7 @@ export const data: Data[] = [
   {
     id: 3,
     data: '28 November 2025',
-    title: `Portrait concert with performance of\n'flashbacks to perform' (2019-2025),\n'tap my head and mike my brain, stick\nthat needle in my vain' (2024-2025), and the premiere of 'Via San Giuseppe' (2025)`,
+    title: `Portrait concert with performance of 'flashbacks to perform' (2019-2025), 'tap my head and mike my brain, stick that needle in my vein' (2024-2025), and the premiere \nof 'Via San Giuseppe' (2025)`,
     sections: [
       {
         type: 'names',
@@ -101,17 +105,12 @@ export const data: Data[] = [
     id: 4,
     active: true,
     data: '29 October 2025',
-    title: `Portrait concert with the\npremiere of 'flashbacks to perform'\nand a panel discussion with\nIsabel Mundry and Jean-Pierre Collot`,
+    title: `Portrait concert with the premiere of 'flashbacks to perform' (2025) and a panel discussion with Isabel Mundry and Jean-Pierre Collot`,
     sections: [
       {
         type: 'names',
         name: `Jean-Pierre Collot`,
         prof: `piano`,
-      },
-      {
-        type: 'names',
-        name: `Johannes Keller`,
-        prof: `technical realisation`,
       },
       {
         type: 'text',
@@ -136,7 +135,7 @@ export const data: Data[] = [
   {
     id: 5,
     data: '20 May 2025',
-    title: `Premiere of 'tap my head and\nmike my brain, stick that needle\nin my vein' (2024-2025)`,
+    title: `Premiere of 'tap my head and mike my brain, stick that needle in my vein' (2024-2025)`,
     sections: [
       {
         type: 'names',
@@ -156,7 +155,7 @@ export const data: Data[] = [
   {
     id: 6,
     data: '15 March 2024',
-    title: `'The Political in Music Today'\n('Das Politische der Musik heute')\nroundtable`,
+    title: `'The Political in Music Today' ('Das Politische der Musik heute') roundtable`,
     sections: [
       {
         type: 'text',
@@ -171,7 +170,7 @@ export const data: Data[] = [
   {
     id: 7,
     data: '25 February 2024',
-    title: `Premiere of 'private spaces'\n(2023-2024)`,
+    title: `Premiere of \n'private spaces' (2023-2024)`,
     sections: [
       {
         type: 'text',
@@ -190,7 +189,7 @@ export const data: Data[] = [
   {
     id: 8,
     data: '10 December 2023',
-    title: `Conference paper\n'Spaces Surrounding Music,\nSpaces Seeping into Music'`,
+    title: `Conference paper 'Spaces Surrounding Music, Spaces Seeping into Music'`,
     sections: [
       {
         type: 'text',
@@ -206,7 +205,7 @@ export const data: Data[] = [
     id: 9,
     active: true,
     data: '17 November 2023',
-    title: `Performative lecture\n'inter-medial tools'`,
+    title: `Performative lecture 'inter-medial tools'`,
     sections: [
       {
         type: 'text',
@@ -221,7 +220,7 @@ export const data: Data[] = [
   {
     id: 10,
     data: '14 October 2023',
-    title: `'Crossing Boundaries: Artists in\nSearch of Identity' public talk`,
+    title: `'Crossing Boundaries: Artists in Search of Identity' public talk`,
     sections: [
       {
         type: 'text',
@@ -245,7 +244,7 @@ export const data: Data[] = [
     id: 11,
     data: 'May 2022',
     active: true,
-    title: `Premiere and multiple\nperformances of the site-specific\nmusic theatre 'SPUREN'`,
+    title: `Premiere and multiple performances of the site-specific music theatre 'SPUREN'`,
     sections: [
       {
         type: 'names',

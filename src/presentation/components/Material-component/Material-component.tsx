@@ -11,11 +11,6 @@ export const MaterialComponent: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const compositionData = materials.find((item) => item.slug === id);
 
-  const PreviewType = {
-    mask: null,
-    toolbarRender: () => null,
-  };
-
   const renderSection = (section: CompositionSection, index: number) => {
     switch (section.type) {
       case 'info':
@@ -28,9 +23,8 @@ export const MaterialComponent: React.FC = () => {
             {section.images?.map((image, imgIndex) => (
               <Styled.PhotoPairItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
-                  className='custom-preview'
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
@@ -45,9 +39,8 @@ export const MaterialComponent: React.FC = () => {
             {section.images?.map((image, imgIndex) => (
               <Styled.PhotoGridItem key={imgIndex} $index={imgIndex}>
                 <Styled.Image
-                  className='custom-preview'
                   src={image.src}
-                  preview={PreviewType}
+                  preview={false}
                   placeholder={<Loader />}
                   alt={compositionData?.name}
                 />
@@ -97,14 +90,12 @@ export const MaterialComponent: React.FC = () => {
 
   return (
     <ContentWrapper position={compositionData?.trackUrl ? 'audio' : 'top'}>
-      <Styled.GlobalStyle />
       <NavigateBack link='/compositions/anonymous-materials' />
       <Styled.Title>{compositionData?.name}</Styled.Title>
       <Styled.HeaderSection>
         <Styled.CoverImage
-          className='custom-preview'
           src={compositionData?.cover}
-          preview={PreviewType}
+          preview={false}
           placeholder={<Loader />}
           alt={compositionData?.name}
         />
